@@ -2,15 +2,11 @@
 
 ### 1 介绍
 
-NS-3（Network Simulator-3）是一个开源的用于互联网系统的离散事件网络模拟器、使用C++或Python构建、它主要用于研究和教育，在GNU GPLv2许可证下公开使用。
+NS-3（Network Simulator-3）是一个开源的用于互联网系统的离散事件网络模拟器、使用C++或Python构建、它主要用于研究和教育，在GNU GPLv2许可证下公开使用。NS-3以源码形式发布，这意味着目标系统需要有软件开发环境能够首先构建所需的库，然后构建用户程序。
 
-NS-3以源码形式发布，这意味着目标系统需要有软件开发环境能够首先构建所需的库，然后构建用户程序。
+NS-3也是一个常用的科研工具，研究人员基于ns-3 仿真，仿真许多用于优化无线网络的 AI 算法，比如，Darago等人基于ns-3实现了车联网（Vehicle-To-Everything, V2X）仿真，可以进行交通流量和拥堵控制、定位、自动驾驶等应用[^1]：
 
-NS-3也是一个常用的科研工具，研究人员基于ns-3 仿真框架，实现许多用于优化无线网络的 AI 算法，比如：
-
-![image-20230501112827724](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\image-20230501112827724.png)
-
-Drago M, Zugno T, Mason F, et al. Artificial Intelligence in Vehicular Wireless Networks: A Case Study Using ns-3[C]//Proceedings of the 2022 Workshop on ns-3. 2022: 112-119.
+![image-20230502093425470](images/image-20230502093425470.png)
 
 ### 2 目标
 
@@ -28,21 +24,21 @@ Windows用户：Windows用户在下载ns-3之前需要安装虚拟机（如ubunt
 
 #### 3.1 安装和构建 NS-3
 
-访问https://www.nsnam.org/，下载最新版本的ns-3。浏览ns-3教程[Tutorial (nsnam.org)](https://www.nsnam.org/docs/release/3.38/tutorial/singlehtml/index.html)第4-7章。第4章讲解下载和安装ns-3的过程。第5-7章介绍ns-3所需的基本概念。
+访问[ns-3官网](https://www.nsnam.org/)，下载最新版本的ns-3。浏览[ns-3教程](https://www.nsnam.org/docs/release/3.38/tutorial/singlehtml/index.html)第4-7章。第4章讲解下载和安装ns-3的过程。第5-7章介绍ns-3所需的基本概念。
 
-![image-20230501113014467](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\image-20230501113014467.png)
+![image-20230502093443121](images/image-20230502093443121.png)
 
 #### 3.2 构建和使用脚本
 
-在建立了NS-3之后，复制examples/tutorials中的first.cc文件，并将其粘贴在 scratch目录中。first.cc是一个脚本，它在两个节点之间创建一个简单的点对点链接，并在节点之间回传一个数据包。导航到ns-3.37目录下并执行./ns3 --run scratch/first命令，在ns-3.37目录下构建并运行first.cc脚本。
+在建立了NS-3之后，复制`examples/tutorials`中的`first.cc`文件，并将其粘贴在 `scratch`目录中。`first.cc`是一个脚本，它在两个节点之间创建一个简单的点对点链接，并在节点之间回传一个数据包。导航到`ns-3.37`目录下并执行`./ns3 --run scratch/first`命令，在`ns-3.37`目录下构建并运行`first.cc`脚本。
 
-![image-20230501113040530](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\image-20230501113040530.png)
+![image-20230502093458298](images/image-20230502093458298.png)
 
-第一个NS-3脚本运行，详见：https://www.nsnam.org/docs/release/3.38/tutorial/singlehtml/index.html#a-first-ns-3-script
+第一个NS-3脚本运行，详见：[first-ns-3-script](https://www.nsnam.org/docs/release/3.38/tutorial/singlehtml/index.html#a-first-ns-3-script)
 
-要运行你自己的脚本，请在scratch目录下编写，并按照上述剩余程序进行。在执行完./ns3 --run scratch/first后，你应该在终端看到以下输出。
+要运行你自己的脚本，请在`scratch`目录下编写，并按照上述剩余程序进行。在执行完`./ns3 --run scratch/first`后，你应该在终端看到以下输出。
 
-![image-20230501113055307](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\image-20230501113055307.png)
+![image-20230502093509203](images/image-20230502093509203.png)
 
 first.cc表明客户端通过向服务器发送一个数据包来启动通信，然后服务器收到上述数据包，再向客户端发送自己的数据包，确认原始数据包被它成功接收。  
 
@@ -52,7 +48,7 @@ first.cc表明客户端通过向服务器发送一个数据包来启动通信，
 
 如：
 
-![img](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\clip_image002.png)
+![image-20230502093519182](images/image-20230502093519182.png)
 
 #### 3.4 NS-3中的简单拓扑
 
@@ -60,16 +56,20 @@ first.cc表明客户端通过向服务器发送一个数据包来启动通信，
 
 在3.2节，我们在客户和服务器节点之间建立一个点对点的链接。本节中要求有一个作为路由器的中间节点的存在，有关的拓扑结构可以通过下面的图示简要地概括
 
-![图示  描述已自动生成](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\clip_image002.jpg)
+![image-20230502093531011](images/image-20230502093531011.png)
 
-我们首先创建一个单一的节点容器来容纳我们的拓扑结构所需的三个节点，然后我们将上述三个节点隔离成两个节点容器，一个用于客户端，一个用于服务器，它们之间共享路由器。 接下来是NS-3的一般程序，即指定点对点链接、安装网卡、协议栈以及在适当的节点上安装客户端和服务器应用程序。最后，加入了 "Ipv4GlobalRoutingHelper::PopulateRoutingTables() "一行，以允许对数据包进行路由。给出为模拟上述拓扑的行为而编写的代码，以及控制台的输出结果。
+我们首先创建一个单一的节点容器来容纳我们的拓扑结构所需的三个节点，然后我们将上述三个节点隔离成两个节点容器，一个用于客户端，一个用于服务器，它们之间共享路由器。 接下来是NS-3的一般程序，即指定点对点链接、安装网卡、协议栈以及在适当的节点上安装客户端和服务器应用程序。最后，加入了`Ipv4GlobalRoutingHelper::PopulateRoutingTables()`行，以允许对数据包进行路由。给出为模拟上述拓扑的行为而编写的代码，以及控制台的输出结果。
 
-![image-20230501113215276](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\image-20230501113215276.png)
+![image-20230502093544934](images/image-20230502093544934.png)
 
 额外加分：构建如下的拓扑结构
 
-![image-20230501113230120](F:\LIChee_Computer_Network\docs\lab04_NS-3\README.assets\image-20230501113230120.png)
+![image-20230502093555356](images/image-20230502093555356.png)
 
-### 参考
+### 参考文献
 
-[Ubuntu20.04安装NS3](https://blog.csdn.net/qq_53273581/article/details/124848777#:~:text=首先，ns3 在3.36版本取消了 waf.py 编译器，使用了,ns3.py 来替代，因此我们讲述不同版本的安装步骤。 而且比3.33更早的版本也可以类比3.33版本的安装命令。 从官网下载选择ns3版本进行下载（可以选择3.33或3.36）： 官方下载地址)
+[^1]:Drago M, Zugno T, Mason F, et al. Artificial Intelligence in Vehicular Wireless Networks: A Case Study Using ns-3[C]//Proceedings of the 2022 Workshop on ns-3. 2022: 112-119.
+
+本实验在设计过程中，内容参考了以下文档：
+
+[Ubuntu20.04安装NS3](https://blog.csdn.net/qq_53273581/article/details/124848777)
