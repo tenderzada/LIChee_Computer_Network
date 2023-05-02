@@ -6,7 +6,7 @@
 
 > SCUT吴贤铭智能工程学院 唐建华老师组编制
 
-[GitHub]()
+[GitHub](https://github.com/tenderzada/LIChee_Computer_Network)
 [Get Started](README)
 
 
