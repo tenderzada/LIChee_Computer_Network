@@ -22,9 +22,9 @@
 
 1. 查看网络配置
 
-  1）Ipconfig/all命令：
+1）Ipconfig/all命令：
 
-  查看和修改网络中的TCP/IP协议的有关配置，例如本机IP地址、子网掩码、网关IP地址、DNS服务器IP地址等。
+查看和修改网络中的TCP/IP协议的有关配置，例如本机IP地址、子网掩码、网关IP地址、DNS服务器IP地址等。
 
   2）arp/a或arp -a命令：
 
