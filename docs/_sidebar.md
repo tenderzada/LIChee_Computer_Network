@@ -1,6 +1,6 @@
 - 目录
     - [Lab1：常见网络命令及TCP](_tcp.md)
     - [Lab2：Scoket编程](_socket.md)
-    - [Lab3：IP路由](_ip.md)
+    - [Lab3：IP路由](_ip)
     - [Lab4：NS-3](lab04_NS-3/README)
     - [:heart:  感谢](_thanks.md)
