@@ -116,7 +116,7 @@ d. 服务器发送给客户端以回复SYN的SYNACK区段的序列号是多少�
 
 e. 包含HTTP POST命令的TCP区段的序列号是多少？
 
-f. RTT(Round Trip Time)分析。将包含PSH ACK视为TCP连接中的第一个区段，假设第一个EstimatedRTT的值等于第一个区段的测量RTT，计算后续区段的EstimatedRTT。、
+f. RTT(Round Trip Time)分析。将包含PSH ACK视为TCP连接中的第一个区段，假设第一个EstimatedRTT的值等于第一个区段的测量RTT，计算后续区段的EstimatedRTT。
 （EstimatedRTT=0.875·EstimatedRTT+0.125·SampleRTT）
 
 h. 在跟踪文件中是否有重传的区段？
