@@ -12,9 +12,9 @@
 
 5.理解OSPF动态路由协议的工作原理。
 
-### 2 实验设备
+### 2 实验准备
 
-计算机、Cisco packet tracer。
+装有Win10系统下的计算机上安装Cisco packet tracer。
 
 ### 3 实验原理
 
@@ -159,9 +159,9 @@ R0、R1中分别添加1个WIC-2T网卡模块，串口配置时钟频率设置为
 
 5.用任一语言实验一个Dijkatra算法
 
+![IP9.png](images/IP9.png)
 
-
-
+以上图拓扑结构为例，用任一语言（C、Python等）实现Dijkatra算法，求得从1节点到任一其他节点的最短路径。
 
 
 
