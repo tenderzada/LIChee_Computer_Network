@@ -22,8 +22,6 @@
 
 - 查看网络配置
 
-- 查看网络配置
-
 1）ipconfig/all 命令：
 
 在本机 MS-DOS 提示符下使用 ipconfig/all 命令，查看主机名、IP地址、默认网关、DNS 服务器地址。
