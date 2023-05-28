@@ -76,7 +76,7 @@
 
 - 传输路径测试：tracert 命令
 
-在本机 MS-DOS 提示符下输入 tracert www.scut.edu.cn 命令，“tracert 网关 IP”、“tracert IP 地址”测试传输路径。
+在本机 MS-DOS 提示符下输入 tracert www.scut.edu.cn 命令、tracert 网关 IP、tracert IP 地址，测试传输路径。
 
 - 解析域名：nslookup 命令
 
@@ -110,12 +110,17 @@
 
 1）捕获从本地计算机到远程服务器的批量TCP传输
 
-在开始探索TCP之前，我们需要使用Wireshark来获取一个文件从你的计算机到远程服务器的TCP传输的数据包跟踪。你将通过访问一个网页来实现，该网页将允许你输入存储在你的计算机上的一个文件的名称，然后使用HTTP POST方法将该文件传输到一个Web服务器。我们使用POST方法而不是GET方法，因为我们想把大量的数据从你的计算机传输到另一台计算机。在此期间我们将运行Wireshark，以获得从你的计算机发送和接收的TCP段的跟踪。
+在开始探索TCP之前，我们需要使用Wireshark来获取“alice.txt”文件从你的计算机到远程服务器的TCP传输的数据包跟踪。你将通过访问一个网页来实现，该网页将允许你输入存储在你的计算机上的“alice.txt”文件的名称，然后使用HTTP POST方法（把大量的数据从你的计算机传输到另一台计算机）将该文件传输到一个Web服务器。在此期间我们将运行Wireshark，以获得从你的计算机发送和接收的TCP段的跟踪。具体操作步骤如下：
 
-访问http://gaia.cs.umass.edu/wireshark-labs/TCP-wireshark-file1.html ，显示如下：
+首先，访问http://gaia.cs.umass.edu/wireshark-labs/TCP-wireshark-file1.html ，点击“选择文件”，选择保存的“alice.txt”文件，但不点击upload按钮，不要关闭浏览器。显示如下：
 ![4.png](images/4.png)
  
-点击“Browse”，选择要上传的文件。启动Wireshark并开始捕获数据。返回浏览器，点击“Upload file”。停止Wireshark数据包捕获，此时应该显示如下内容：
+然后，启动Wireshark并开始捕获数据。
+
+接着，返回浏览器，点击“Upload alice.txt file”按钮来更新文件到服务器。一旦这个文件被更新，会有一条恭喜信息。显示如下：
+![7.png](images/7.png)
+
+停止Wireshark数据包捕获，此时应该显示如下内容：
 ![5.png](images/5.png)
 
 用抓包结果回答下列关于TCP区段的问题：
