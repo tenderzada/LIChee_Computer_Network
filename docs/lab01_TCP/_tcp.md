@@ -22,55 +22,71 @@
 
 - 查看网络配置
 
-1）Ipconfig/all命令：
+1）ipconfig/all 命令：
 
-查看和修改网络中的TCP/IP协议的有关配置，例如本机IP地址、子网掩码、网关IP地址、DNS服务器IP地址等。
+在本机 MS-DOS 提示符下使用 ipconfig/all 命令，查看主机名、IP地址、默认网关、DNS 服务器地址。
 
-2）arp/a或arp -a命令：
+2）arp/a 或arp -a 命令：
 
-查看地址解析表以检测网关及与自己主机相连接主机的IP和MAC地址。
+在本机 MS-DOS 提示符下使用 arp/a 或 arp -a 命令，查看地址解析表以检测网关及与自己主机相连接主机的 IP 和 MAC 地址。
 
-- 检查网络连通性：ping命令
+- 检查网络连通性：ping 命令
 
 1）ping 127.0.0.1：
 
-ping该环回地址将测试包回送本机IP软件，验证在本地计算机上是否正确地安装了TCP/IP协议，以及配置是否正确。
+在本机 MS-DOS 提示符下使用 ping 127.0.0.1 命令，查看运行结果，做简单说明。
 
 2）ping localhost：
 
-localhost是个网络保留名，127.0.0.1的别名，每台计算机均应能将该名字转换成该地址。如果没有，表明主机文件存在问题。
+在本机 MS-DOS 提示符下使用 ping localhost 命令，查看运行结果，做简单说明。
 
 3）ping 本机IP地址：
 
-该命令被送往本地计算机的IP地址，如果没有应答，表示本地配置或安装存在问题。
+在本机 MS-DOS 提示符下使用 ping 本机IP地址 命令，查看运行结果，做简单说明。
 
 4）ping 本机主机名：
 
-本机主机名是本机IP地址的别名，每台计算机均应将其主机名转换成该地址。如果没有，表明主机文件存在问题。
+在本机 MS-DOS 提示符下使用 ping 本机主机名 命令，查看运行结果，做简单说明。
 
-5）ping 本网网关路由器IP地址：
+5）ping 网关IP地址：
 
-如果应答正常，表示局域网中的网关路由器正在运行并能够作出应答。说明本网直至连入Internet的路由器均正常。
+在本机 MS-DOS 提示符下使用 ping 网关IP地址 命令，查看运行结果，做简单说明。
 
-6）ping 因特网上某主机IP地址或域名：
+6）ping www.scut.edu.cn:
 
-如果应答正常，说明本机能正常上因特网且该主机正常连接入Internet。否则若ping IP地址正常而ping 主机域名不正常，说明域名系统DNS服务器工作故障不能解析域名；若ping IP地址不通，判断网关是否出现工作故障，没有连接Internet。
+在本机 MS-DOS 提示符下使用 ping www.scut.edu.cn 命令，查看运行结果，做简单说明。
 
-- 网络协议统计：Netstat命令
+- 网络协议统计：netstat 命令
 
-观察本机当前连接的所有端口、套接字、各协议网络状态统计信息。
+1）netstat 命令
 
-- 传输路径测试：tracert命令
+在本机 MS-DOS 提示符下输入 netstat 命令，查看本机当前激活的连接。
 
-测试传输路径及所需时间。
+2）netstat -a 命令
 
-- 解析域名：nslookup命令
+在本机 MS-DOS 提示符下输入 netstat -a 命令，查看本机所有开放的端口号，观察结果，找出建立连接的远程 IP 和端口号。
 
-连接DNS服务器解析域名，可查询到其对应IP地址和主机名及所有别名等域名信息。还可实现反向解析把IP地址反向解析为域名。
+3）netstat -es 命令
+
+在本机 MS-DOS 提示符下输入 netstat -es 命令，查看当前局域网中的统计信息。
+
+4）netstat -r 命令
+
+在本机 MS-DOS 提示符下输入 netstat -r 命令，查看观察路由情况。
+
+- 传输路径测试：tracert 命令
+
+在本机 MS-DOS 提示符下输入 tracert www.scut.edu.cn 命令、tracert 网关 IP、tracert IP 地址，测试传输路径。
+
+- 解析域名：nslookup 命令
+
+在本机 MS-DOS 提示符下输入 nslookup www.scut.edu.cn 命令，执行非交互式的解析域名操作，查看解析结果；再输入 nslookup 命令后，进入交互式的解析域名操作，之后单独输入 www.scut.edu.cn 参数，查看解析结果；再输入其对应的 IP 地址，查看解析结果。退出交互输入 exit。
 
 #### 3.2 Wireshark软件抓包
 
 使用Wireshark软件进行抓包，并按照以下要求分别进行数据包过滤和协议分析。
+
+下载链接：https://www.wireshark.org/download.html
 
 ![2.png](images/2.png)
 
@@ -78,15 +94,15 @@ localhost是个网络保留名，127.0.0.1的别名，每台计算机均应能�
 
 1）地址过滤
 
-显示源IP地址或目标IP地址为本机IP地址的数据包列表。
+显示源IP地址和目标IP地址为本机IP地址的数据包列表。
 
 2）端口过滤
 
-显示源主机或目的主机端口为80的数据包列表。
+显示源主机和目的主机TCP端口为80的数据包列表。
 
-3）http模式过滤
+3）HTTP模式过滤
 
-显示http GET方法的数据包列表。
+显示HTTP GET方法的数据包列表。
 
 4）协议过滤
 
@@ -96,12 +112,17 @@ localhost是个网络保留名，127.0.0.1的别名，每台计算机均应能�
 
 1）捕获从本地计算机到远程服务器的批量TCP传输
 
-在开始探索TCP之前，我们需要使用Wireshark来获取一个文件从你的计算机到远程服务器的TCP传输的数据包跟踪。你将通过访问一个网页来实现，该网页将允许你输入存储在你的计算机上的一个文件的名称，然后使用HTTP POST方法将该文件传输到一个Web服务器。我们使用POST方法而不是GET方法，因为我们想把大量的数据从你的计算机传输到另一台计算机。在此期间我们将运行Wireshark，以获得从你的计算机发送和接收的TCP段的跟踪。
+在开始探索TCP之前，我们需要使用Wireshark来获取“alice.txt”文件从你的计算机到远程服务器的TCP传输的数据包跟踪。你将通过访问一个网页来实现，该网页将允许你输入存储在你的计算机上的“alice.txt”文件的名称，然后使用HTTP POST方法（把大量的数据从你的计算机传输到另一台计算机）将该文件传输到一个Web服务器。在此期间我们将运行Wireshark，以获得从你的计算机发送和接收的TCP段的跟踪。具体操作步骤如下：
 
-访问http://gaia.cs.umass.edu/wireshark-labs/TCP-wireshark-file1.html ，显示如下：
+首先，访问http://gaia.cs.umass.edu/wireshark-labs/TCP-wireshark-file1.html ，点击“选择文件”，选择保存的“alice.txt”文件，但不点击upload按钮，不要关闭浏览器。显示如下：
 ![4.png](images/4.png)
  
-点击“Browse”，选择要上传的文件。启动Wireshark并开始捕获数据。返回浏览器，点击“Upload file”。停止Wireshark数据包捕获，此时应该显示如下内容：
+然后，启动Wireshark并开始捕获数据。
+
+接着，返回浏览器，点击“Upload alice.txt file”按钮来更新文件到服务器。一旦这个文件被更新，会有一条恭喜信息。显示如下：
+![7.png](images/7.png)
+
+停止Wireshark数据包捕获，此时应该显示如下内容：
 ![5.png](images/5.png)
 
 用抓包结果回答下列关于TCP区段的问题：
@@ -116,12 +137,8 @@ d. 服务器发送给客户端以回复SYN的SYNACK区段的序列号是多少�
 
 e. 包含HTTP POST命令的TCP区段的序列号是多少？
 
-f. RTT(Round Trip Time)分析。将包含PSH ACK视为TCP连接中的第一个区段，假设第一个EstimatedRTT的值等于第一个区段的测量RTT，计算后续区段的EstimatedRTT。
+f. RTT(Round Trip Time)分析。将包含 PSH ACK 视为 TCP 连接中的第一个区段，假设第一个 Estimated RTT 的值等于第一个区段的测量 RTT，计算后续六个区段的 Estimated RTT。
 （EstimatedRTT=0.875·EstimatedRTT+0.125·SampleRTT）
-
-h. 在跟踪文件中是否有重传的区段？
-
-i. TCP连接的吞吐量是多少？如何计算。
 
 2）设置数据包筛选器，以便 Wireshark 仅显示在主机上发送和接收的UDP数据包。选择其中一个UDP数据包并在详细信息窗口中展开UDP字段，如下图所示。
 ![6.png](images/6.png)
