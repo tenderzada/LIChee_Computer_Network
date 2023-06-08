@@ -133,12 +133,12 @@ b. 客户端（源计算机）和服务器之间启动TCP连接的TCP SYN区段�
 
 c. 结合实例介绍“三次握手”和“四次挥手”的过程。
 
-d. 服务器发送给客户端以回复SYN的SYNACK区段的序列号是多少？该序列号的作用是什么？
+d. 服务器发送给客户端以回复SYN的SYN ACK区段的序列号是多少？该序列号的作用是什么？
 
 e. 包含HTTP POST命令的TCP区段的序列号是多少？
 
-f. RTT(Round Trip Time)分析。将包含 PSH ACK 视为 TCP 连接中的第一个区段，假设第一个 Estimated RTT 的值等于第一个区段的测量 RTT，计算后续六个区段的 Estimated RTT。
-（EstimatedRTT=0.875·EstimatedRTT+0.125·SampleRTT）
+f. RTT(Round Trip Time)分析。将包含 HTTP POST 的 TCP 区段视为 TCP 连接中的第一个区段，假设第一个 Estimated RTT 的值等于第一个区段的测量 RTT，计算后续六个区段的 Estimated RTT。 
+（Estimated RTT=0.875·Estimated RTT+0.125·Sample RTT）
 
 2）设置数据包筛选器，以便 Wireshark 仅显示在主机上发送和接收的UDP数据包。选择其中一个UDP数据包并在详细信息窗口中展开UDP字段，如下图所示。
 ![6.png](images/6.png)
