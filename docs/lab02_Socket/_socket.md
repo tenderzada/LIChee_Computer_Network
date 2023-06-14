@@ -40,7 +40,6 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 #Fill in end
 
 while True:     
-    #Establish the connection    
     print('Ready to serve...')
     # 接收到客户端连接请求后，建立新的TCP连接套接字connectionSocket，同时获取客户端的地址信息addr。
     connectionSocket, addr =   #Fill in start  #Fill in end
@@ -58,7 +57,7 @@ while True:
         # 逐个字符将文件内容发送给客户端。
         for i in range(0, len(outputdata)):
             connectionSocket.send(outputdata[i])
-	# 关闭与客户端的连接。
+	    # 关闭与客户端的连接。
         connectionSocket.close()
     except IOError:
         # 如果请求的文件不存在，返回404错误响应。
@@ -123,8 +122,8 @@ while True:
     
 	# 从请求报文中解析出请求的文件名，将斜杠替换为下划线。
 	filename = message.split()[1].partition("//")[2].replace('/', '_')
+	
 	fileExist = "false"
-    
 	try:
 		# 尝试打开缓存中的文件，如果文件存在，则读取文件内容到outputdata列表中，并将fileExist设置为"true"，表示文件存在。
 		f = open(filename, "r")
@@ -137,32 +136,29 @@ while True:
             # Fill in start. # Fill in end.
         print('Read from cache')
 		
-	# Error handling for file not found in cache
+	# 如果文件不存在于缓存中，执行异常处理。
 	except IOError:
-	# 如果文件不存在于缓存中，执行异常处理。创建一个新的套接字c，用于与远程服务器通信，并解析出请求的主机名。
         print('File Exist: ', fileExist)
 		if fileExist == "false":
-			# Create a socket on the proxyserver
+			# 创建一个新的套接字c，用于与远程服务器通信.
             print('Creating socket on proxyserver')
 			c = # Fill in start. # Fill in end.
             
-            # 建立与远程服务器的连接，将请求报文发送给远程服务器，并接收响应。将响应内容发送给客户端，同时将响应内容写入缓存文件。
+            # 解析出请求的主机名。
 			hostn = message.split()[1].partition("//")[2].partition("/")[0]
             print('Host Name: ', hostn)
 			try:
-				# Connect to the socket to port 80
+				# 建立与远程服务器的连接
 				# Fill in start.
 				# Fill in end.
                 print('Socket connected to port 80 of the host')
                 
-				# Ask port 80
+				# 将请求报文发送给远程服务器
 				c.sendall(message.encode())
-                
-				# Read the response into buffer
+				# 接收响应
                 buff = # Fill in start. # Fill in end.
                  
-				# Create a new file in the cache for the requested file.
-				# Also send the response in the buffer to client socket and the corresponding file in the cache
+				# 将响应内容发送给客户端，同时将响应内容写入缓存文件。
                 tcpCliSock.sendall(buff)
 				tmpFile = open("./" + filename,"wb")
 				# Fill in start.
@@ -174,6 +170,7 @@ while True:
 			print('File Not Found...Stupid Andy') 
 	# Close the client and the server sockets
 	tcpCliSock.close()
+# 关闭服务器套接字，结束程序运行。
 # Fill in start.
 # Fill in end.
 ```
