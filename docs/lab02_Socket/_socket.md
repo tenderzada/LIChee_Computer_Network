@@ -31,32 +31,37 @@ http://10.37.83.61:6789/HelloWorld.html
 ### Web服务器的Python代码框架
 
 ```python
-#import socket module
 from socket import *
+# 创建TCP套接字对象serverSocket
 serverSocket = socket(AF_INET, SOCK_STREAM) 
-#Prepare a sever socket 
+# 将TCP套接字绑定到本地地址和指定端口6789。
+# 设置最大连接数为1，开始监听客户端连接请求。
 #Fill in start 
-#Fill in end 
+#Fill in end
+
 while True:     
     #Establish the connection    
-    print('Ready to serve...')    
+    print('Ready to serve...')
+    # 接收到客户端连接请求后，建立新的TCP连接套接字connectionSocket，同时获取客户端的地址信息addr。
     connectionSocket, addr =   #Fill in start  #Fill in end
     print('Received a connection from: ', addr)
-    try:         
+    try:
+    	# 从客户端接收请求报文，提取请求的文件名，打开对应文件，并读取文件内容。
         message =   #Fill in start  #Fill in end
         filename = message.split()[1]                          
         f = open(filename[1:])
         outputdata = #Fill in start  #Fill in end
-        #Send one HTTP header line into socket         
+        # 构建HTTP响应头部，包括状态行和其他字段，并发送给客户端   
         #Fill in start         
         #Fill in end    
 
-        #Send the content of the requested file to the client
+        # 逐个字符将文件内容发送给客户端。
         for i in range(0, len(outputdata)):
             connectionSocket.send(outputdata[i])
+	# 关闭与客户端的连接。
         connectionSocket.close()
     except IOError:
-        #Send response message for file not found
+        # 如果请求的文件不存在，返回404错误响应。
         #Fill in start
         #Fill in end
 
@@ -99,46 +104,49 @@ while True:
 ##coding:utf-8
 from socket import *
 
-# Create a server socket, bind it to a port and start listening
+# 创建TCP套接字对象tcpSerSock，并指定监听端口为8899。
 tcpSerPort = 8899
 tcpSerSock = socket(AF_INET, SOCK_STREAM)
 
-# Prepare a server socket
+# 将TCP服务器套接字绑定到本地地址和指定端口，并开始监听连接请求，最大连接数为5。
 # Fill in start.
 # Fill in end.
+
 while True:
-	# Strat receiving data from the client
+	# 打印提示信息，表示服务器已准备好接收连接，并接受客户端的连接请求，获取客户端的地址信息。
 	print('Ready to serve...')
 	tcpCliSock, addr = tcpSerSock.accept()
 	print('Received a connection from: ', addr)
+	# 从客户端接收请求报文，最大接收4096字节，并将其解码为字符串。
 	message = # Fill in start. # Fill in end.
-	print message
+	print(message)
     
-	# Extract the filename from the given message
+	# 从请求报文中解析出请求的文件名，将斜杠替换为下划线。
 	filename = message.split()[1].partition("//")[2].replace('/', '_')
 	fileExist = "false"
     
 	try:
-		# Check wether the file exist in the cache
+		# 尝试打开缓存中的文件，如果文件存在，则读取文件内容到outputdata列表中，并将fileExist设置为"true"，表示文件存在。
 		f = open(filename, "r")
         outputdata = f.readlines()
         fileExist = "true"
         print('File Exists!')
         
-		# ProxyServer finds a cache hit and generates a response message
+		# 如果文件存在于缓存中，将文件内容逐行发送给客户端。
 		for i in range(0, len(outputdata)):
             # Fill in start. # Fill in end.
         print('Read from cache')
 		
 	# Error handling for file not found in cache
 	except IOError:
+	# 如果文件不存在于缓存中，执行异常处理。创建一个新的套接字c，用于与远程服务器通信，并解析出请求的主机名。
         print('File Exist: ', fileExist)
 		if fileExist == "false":
 			# Create a socket on the proxyserver
             print('Creating socket on proxyserver')
 			c = # Fill in start. # Fill in end.
             
-            # Extract the host name from the given message
+            # 建立与远程服务器的连接，将请求报文发送给远程服务器，并接收响应。将响应内容发送给客户端，同时将响应内容写入缓存文件。
 			hostn = message.split()[1].partition("//")[2].partition("/")[0]
             print('Host Name: ', hostn)
 			try:
@@ -162,8 +170,8 @@ while True:
 			except:
 				print("Illegal request")
 		else:
-			# HTTP response message for file not found
-			print('File Not Found...Stupid Andy')
+			# 如果文件在缓存和远程服务器上都不存在，打印提示信息表示文件未找到。
+			print('File Not Found...Stupid Andy') 
 	# Close the client and the server sockets
 	tcpCliSock.close()
 # Fill in start.
