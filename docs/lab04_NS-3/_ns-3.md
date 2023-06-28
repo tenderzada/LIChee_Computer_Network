@@ -143,6 +143,9 @@ main(int argc, char* argv[])
 本实验在设计过程中，内容参考了以下文档：
 
 [虚拟机VMware下载与安装教程](https://blog.csdn.net/weixin_45912291/article/details/108894737)
+
 [Ubuntu系统下载（清华大学开源软件镜像站）](https://blog.csdn.net/weixin_45912291/article/details/108900602)
+
 [虚拟机VMware安装ubuntu教程](https://blog.csdn.net/weixin_45912291/article/details/108901106)
+
 [Ubuntu20.04安装NS3](https://blog.csdn.net/qq_53273581/article/details/124848777)
