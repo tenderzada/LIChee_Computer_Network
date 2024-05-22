@@ -1,6 +1,6 @@
 # :wave: Welcome
 
-该实验指导书适用于2023年春季学期唐建华老师《Computer Networking》课程。
+该实验指导书适用于2024年春季学期唐建华老师《Computer Networking》课程。
 
 ## 实验内容
 
